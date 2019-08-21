@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import SearchBar from '../SearchBar/SearchBar'
+import SearchResults from '../SearchResults/SearchResults'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="App">
         <SearchBar />
         <div className="App-playlist">
+          <SearchResults />
         </div>
       </div>
     </div>
