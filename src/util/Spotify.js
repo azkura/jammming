@@ -25,6 +25,28 @@ const Spotify = {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`
       window.location = accessUrl
     }
+  },
+
+  search(term) {
+    const endPoint = '/v1/search?type=TRACK'
+    return fetch(`https://api.spotify.com${endPoint}=${term}`, {
+      headers: {
+        Authorization: `Bearer${accessToken}`
+      }
+    }).then((response) => {
+      return response.json()
+    }).then((jsonResponse) => {
+      return jsonResponse.tracks.map((track) => {
+        console.log(track)
+        return {
+          id: track.id,
+          name: track.name,
+          artist: track[0].name,
+          album: track.album.name,
+          uri: track.uri
+        }
+      })
+    })
   }
 }
 
