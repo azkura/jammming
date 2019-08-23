@@ -1,5 +1,5 @@
 const clientId = '9e3e14f83bf246eca50a1004d1d55827'
-const redirectUri = 'http://localhost:3000/'
+const redirectUri = 'http://homeless-noise.surge.sh'
 let accessToken= ''
 
 const Spotify = {
