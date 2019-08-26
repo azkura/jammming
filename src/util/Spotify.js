@@ -1,5 +1,5 @@
 const clientId = '9e3e14f83bf246eca50a1004d1d55827'
-const redirectUri = 'http://assorted-sort.surge.sh'
+const redirectUri = 'http://assorted-sort.surge.sh/'
 let accessToken= ''
 
 const Spotify = {
