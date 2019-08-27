@@ -1,13 +1,13 @@
 .playlist {
   width: 28rem;
-  border: 3px solid black;
-  margin: 3rem auto;
+  /* border: 3px solid black; */
+  /* margin: 3rem auto; */
   padding: 1rem;
   background: darkblue
 }
 
 h3 {
-  margin: 0;
+  /* margin: 0; */
   border-bottom: 0.5px solid #fff;
   padding: 0.5rem;
 }

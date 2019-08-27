@@ -8,7 +8,7 @@ class SpotifyPlaylist extends React.Component {
     return (
       <div className='playlist'>
         <h3>SPOTIFY PLAYLIST</h3>
-        <PlaylistList lists={this.props.playlists}/>
+        <PlaylistList lists={this.props.playlist}/>
       </div>
     )
   }

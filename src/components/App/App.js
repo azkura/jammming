@@ -5,7 +5,6 @@ import SearchBar from '../SearchBar/SearchBar'
 import SearchResults from '../SearchResults/SearchResults'
 import Playlist from '../Playlist/Playlist'
 import Spotify from '../../util/Spotify'
-import SpotifyPlaylist from '../../container/SpotifyPlaylist/SpotifyPlaylist'
 
 class App extends React.Component {
   constructor(props) {
@@ -86,8 +85,8 @@ class App extends React.Component {
                       playlistTracks={this.state.playlistTracks}
                       onRemove={this.removeTrack}
                       onNameChange={this.updatePlaylistName}
-                      onSave={this.savePlaylist}/>
-            <SpotifyPlaylist playlists={this.state.playlists}/>
+                      onSave={this.savePlaylist}
+                      playlists={this.state.playlists}/>
           </div>
         </div>
       </div>

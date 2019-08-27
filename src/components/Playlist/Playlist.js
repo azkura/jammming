@@ -2,6 +2,7 @@ import React from 'react'
 import './Playlist.css'
 
 import TrackList from '../TrackList/TrackList'
+import SpotifyPlaylist from '../../container/SpotifyPlaylist/SpotifyPlaylist'
 
 class Playlist extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Playlist extends React.Component {
         <TrackList tracks={this.props.playlistTracks}
                    onRemove={this.props.onRemove}
                    isRemoval={true}/>
+        <SpotifyPlaylist playlist={this.props.playlists} />
         <button className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
       </div>
     )
