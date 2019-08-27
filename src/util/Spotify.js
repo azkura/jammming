@@ -1,6 +1,7 @@
 const clientId = '9e3e14f83bf246eca50a1004d1d55827'
 const redirectUri = 'http://assorted-sort.surge.sh/'
 let accessToken= ''
+let userId = ''
 
 const Spotify = {
   getAccessToken() {
@@ -53,18 +54,27 @@ const Spotify = {
     })
   },
 
+  getCurrentUserId() {
+    if(!userId) {
+      return 
+    }
+    const accessToken = Spotify.getAccessToken()
+    const headers = {  Authorization: `Bearer ${accessToken}` }
+
+    return fetch('https://api.spotify.com/v1/me', { headers: headers}
+    ).then(response => response.json()
+    ).then(jsonResponse => {
+      userId = jsonResponse.id
+    })
+  },
+
   savePlaylist(name, trackUris) {
     if(!name || !trackUris.length) {
       return
     }
     const accessToken = Spotify.getAccessToken()
     const headers = {  Authorization: `Bearer ${accessToken}` }
-    let userId
-
-    return fetch('https://api.spotify.com/v1/me', { headers: headers }
-    ).then(response => response.json()
-    ).then(jsonResponse => {
-      userId = jsonResponse.id
+    const userId = Spotify.getCurrentUserId()
       return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
         headers: headers,
         method: 'POST',
@@ -78,6 +88,21 @@ const Spotify = {
           body: JSON.stringify({ uris: trackUris})
         })
       })
+  },
+
+  getUserPlaylist(playlistName, playlistTitle) {
+    const userId = Spotify.getCurrentUserId()
+    const accessToken = Spotify.getAccessToken()
+    const headers = {  Authorization: `Bearer ${accessToken}` }
+
+    return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+      headers: headers,
+      method: 'GET',
+      body: JSON.stringify({ playlistName})
+    }).then(response => response.json()
+    ).then(jsonResponse => {
+      const playlistId = jsonResponse.id
+      console.log(playlistId)
     })
   }
 }
