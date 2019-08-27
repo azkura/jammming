@@ -6,8 +6,8 @@ import PlaylistList from '../../components/PlaylistList/PlaylistList'
 class SpotifyPlaylist extends React.Component {
   render() {
     return (
-      <div>
-        <h3>Spotify Playlists</h3>
+      <div className='playlist'>
+        <h3>SPOTIFY PLAYLIST</h3>
         <PlaylistList lists={this.props.playlists}/>
       </div>
     )

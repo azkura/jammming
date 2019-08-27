@@ -4,7 +4,7 @@ import './PlaylistName.css'
 class PlaylistName extends React.Component {
   render() {
     let list = this.props.list
-    return <p>{list.title}</p>
+    return <p className='list'>{list.title}</p>
   }
 }
 
